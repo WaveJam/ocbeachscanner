@@ -15,12 +15,15 @@
             color: #333;
             display: flex;
             justify-content: center;
+            flex-direction: column;
         }
         .container {
-            width: 1000px;
+            width: 100%;
+            max-width: 1000px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding: 0 1em;
         }
         header {
             background: #4b5571;
@@ -31,23 +34,19 @@
         }
         .main-content {
             display: flex;
+            flex-direction: column;
             width: 100%;
         }
-        .content {
-            width: 66%;
+        .content, .sidebar {
             padding: 2em;
-            background: #d3d3d3; /* Light gray background */
+            background: #d3d3d3;
             margin: 2em 0;
             border-radius: 8px;
             text-align: center;
+            width: 100%;
         }
         .sidebar {
-            width: 33%;
-            padding: 2em;
-            background: #8f9da8; /* Darker gray background */
-            margin: 2em 0;
-            border-radius: 8px;
-            text-align: center;
+            background: #8f9da8;
         }
         footer {
             text-align: center;
@@ -67,8 +66,9 @@
         }
         .webcam {
             display: none;
-            width: 500px;
-            height: 400px;
+            width: 100%;
+            max-width: 500px;
+            height: auto;
             border: none;
         }
         .webcam.active {
@@ -98,8 +98,19 @@
             font-size: 0.8em;
             font-style: italic;
         }
+        @media (min-width: 600px) {
+            .main-content {
+                flex-direction: row;
+            }
+            .content {
+                width: 66%;
+            }
+            .sidebar {
+                width: 33%;
+            }
+        }
     </style>
-    <script type="text/javascript" src="https://www.swellinfo.com//widget/js/getWidget.1532478638.js" data-widget-id="8940"></script>
+    <script src="https://surfcaptain.com/js/get-widget.js?id=403" defer></script>
     <script>
         let currentIndex = 0;
         let autoRotateInterval = null;
@@ -159,31 +170,31 @@
                         <button onclick="nextCamera()">Next Camera</button>
                     </div>
                     <div class="webcam active">
-                        <iframe src="https://chart.maryland.gov/Video/GetVideo/ca00391d02aa00fa0051fa36c4235c0a" style="width: 500px; height: 400px; border: none;" scrolling="no"></iframe>
+                        <iframe src="https://chart.maryland.gov/Video/GetVideo/ca00391d02aa00fa0051fa36c4235c0a" style="width: 100%; height: 400px; border: none;" scrolling="no"></iframe>
                         <div class="webcam-title">US 50 E AT OC DRAWBRIDGE</div>
                     </div>
                     <div class="webcam">
-                        <iframe src="https://chart.maryland.gov/Video/GetVideo/ca0022f7010500f9005cd336c4235c0a" style="width: 500px; height: 400px; border: none;" scrolling="no"></iframe>
+                        <iframe src="https://chart.maryland.gov/Video/GetVideo/ca0022f7010500f9005cd336c4235c0a" style="width: 100%; height: 400px; border: none;" scrolling="no"></iframe>
                         <div class="webcam-title">US 50 W AT OC DRAWBRIDGE</div>
                     </div>
                     <div class="webcam">
-                        <iframe src="https://chart.maryland.gov/Video/GetVideo/db00fc6700950030005dd336c4235c0a" style="width: 500px; height: 400px; border: none;" scrolling="no"></iframe>
+                        <iframe src="https://chart.maryland.gov/Video/GetVideo/db00fc6700950030005dd336c4235c0a" style="width: 100%; height: 400px; border: none;" scrolling="no"></iframe>
                         <div class="webcam-title">US 50 AT MD 589 RACETRACK RD</div>
                     </div>
                     <div class="webcam">
-                        <iframe src="https://chart.maryland.gov/Video/GetVideo/a00040f20098007b00488436cf235d0a" style="width: 500px; height: 400px; border: none;" scrolling="no"></iframe>
+                        <iframe src="https://chart.maryland.gov/Video/GetVideo/a00040f20098007b00488436cf235d0a" style="width: 100%; height: 400px; border: none;" scrolling="no"></iframe>
                         <div class="webcam-title">US 50 AT US 113</div>
                     </div>
                     <div class="webcam">
-                        <iframe src="https://chart.maryland.gov/Video/GetVideo/c1000a2d004700e700498436cf235d0a" style="width: 500px; height: 400px; border: none;" scrolling="no"></iframe>
+                        <iframe src="https://chart.maryland.gov/Video/GetVideo/c1000a2d004700e700498436cf235d0a" style="width: 100%; height: 400px; border: none;" scrolling="no"></iframe>
                         <div class="webcam-title">MD 90 AT MD 589</div>
                     </div>
                     <div class="webcam">
-                        <iframe src="https://chart.maryland.gov/Video/GetVideo/58004a9f0099007b00488436cf235d0a" style="width: 500px; height: 400px; border: none;" scrolling="no"></iframe>
+                        <iframe src="https://chart.maryland.gov/Video/GetVideo/58004a9f0099007b00488436cf235d0a" style="width: 100%; height: 400px; border: none;" scrolling="no"></iframe>
                         <div class="webcam-title">US 50 E AT MD 90</div>
                     </div>
                     <div class="webcam">
-                        <iframe src="https://chart.maryland.gov/Video/GetVideo/f100453d0099007b00488436cf235d0a" style="width: 500px; height: 400px; border: none;" scrolling="no"></iframe>
+                        <iframe src="https://chart.maryland.gov/Video/GetVideo/f100453d0099007b00488436cf235d0a" style="width: 100%; height: 400px; border: none;" scrolling="no"></iframe>
                         <div class="webcam-title">US 50 W AT MD 90</div>
                     </div>
                 </div>
@@ -191,8 +202,8 @@
             <div class="sidebar">
                 <h3 id="audio">LISTEN LIVE</h3>
                 <font size="1"><I>Press the play button below to hear fire and police live.</I></font>
-                <iframe width="325px" height="90px" src="https://api.broadcastify.com/embed/player/?key=9fa15f60-3e0a-11ef-9e04-0e98d5b32039&html5=1&feedId=43251&stats=1&bg=81999a" scrolling="no" style="border: none;">Your browser does not support iFrames.</iframe>
-                <div id="swellinfo-widget-8940"></div>
+                <iframe width="100%" height="90px" src="https://api.broadcastify.com/embed/player/?key=9fa15f60-3e0a-11ef-9e04-0e98d5b32039&html5=1&feedId=43251&stats=1&bg=8f9da8" scrolling="no" style="border: none;">Your browser does not support iFrames.</iframe>
+                <div id="sc-widget-403" sc-widget-type="forecast" sc-widget-slug="ocean-city-maryland" sc-widget-theme="light" sc-widget-units="1"></div>
             </div>
         </div>
     </div>
