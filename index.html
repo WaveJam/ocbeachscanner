@@ -9,78 +9,195 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: url('https://www.example.com/beach-background.jpg') no-repeat center center fixed;
+            background: url('background.png') no-repeat center center fixed;
             background-size: cover;
             color: #333;
-        }
-        header {
-            background: rgba(0, 123, 255, 0.8);
-            padding: 1em;
-            text-align: center;
-            color: white;
-        }
-        nav {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 1em;
             display: flex;
             justify-content: center;
         }
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #007bff;
+        .container {
+            width: 1000px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background: #4b5571;
+            padding: 1em;
+            text-align: center;
+            color: white;
+            width: 100%;
+        }
+        .main-content {
+            display: flex;
+            width: 100%;
         }
         .content {
+            width: 66%;
             padding: 2em;
-            background: rgba(255, 255, 255, 0.9);
-            margin: 2em;
+            background: #95abab; /* Light gray background */
+            margin: 2em 0;
             border-radius: 8px;
+            text-align: center;
+        }
+        .sidebar {
+            width: 33%;
+            padding: 2em;
+            background: #81999a; /* Darker gray background */
+            margin: 2em 0;
+            border-radius: 8px;
+            text-align: center;
         }
         footer {
             text-align: center;
             padding: 1em;
-            background: rgba(0, 123, 255, 0.8);
+            background: #4b5571;
             color: white;
+            width: 100%;
             position: fixed;
             bottom: 0;
-            width: 100%;
-        }
-        .icons {
-            display: flex;
-            justify-content: center;
-            margin-top: 1em;
-        }
-        .icons img {
-            margin: 0 15px;
-            width: 50px;
-            height: 50px;
         }
         .webcam-section {
-            margin-top: 2em;
+            margin-top: 1em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .webcam {
+            display: none;
+            width: 500px;
+            height: 400px;
+            border: none;
+        }
+        .webcam.active {
+            display: block;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin: 0.5em 0;
+        }
+        .controls button {
+            padding: 0.5em 1em;
+            margin: 0 1em;
+            border: none;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .webcam-title {
+            margin-top: 0.5em;
+            font-weight: bold;
+            text-align: center;
+        }
+        .courtesy {
+            font-size: 0.8em;
+            font-style: italic;
         }
     </style>
+    <script type="text/javascript" src="https://www.swellinfo.com//widget/js/getWidget.1532478638.js" data-widget-id="8940"></script>
     <script>
-        function videoButtonClick(button) {
-            var videoSrc = button.getAttribute('data-url');
-            var videoContainer = document.getElementById('webcam');
-            videoContainer.innerHTML = '<video controls style="width:100%;height:100%;"><source src="' + videoSrc + '" type="application/x-mpegURL"></video>';
+        let currentIndex = 0;
+        let autoRotateInterval = null;
+
+        function showCamera(index) {
+            const webcams = document.querySelectorAll('.webcam');
+            webcams.forEach((webcam, i) => {
+                webcam.classList.remove('active');
+                if (i === index) {
+                    webcam.classList.add('active');
+                }
+            });
         }
+
+        function nextCamera() {
+            const webcams = document.querySelectorAll('.webcam');
+            currentIndex = (currentIndex + 1) % webcams.length;
+            showCamera(currentIndex);
+        }
+
+        function prevCamera() {
+            const webcams = document.querySelectorAll('.webcam');
+            currentIndex = (currentIndex - 1 + webcams.length) % webcams.length;
+            showCamera(currentIndex);
+        }
+
+        function toggleAutoRotate() {
+            const button = document.getElementById('auto-rotate-button');
+            if (autoRotateInterval) {
+                clearInterval(autoRotateInterval);
+                autoRotateInterval = null;
+                button.textContent = 'Start Auto Rotate';
+            } else {
+                autoRotateInterval = setInterval(nextCamera, 3000);
+                button.textContent = 'Stop Auto Rotate';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showCamera(currentIndex);
+        });
     </script>
 </head>
 <body>
-    <header>
-        <h1>Welcome to OC Beach Scanner</h1>
-        <p>Stay informed with the latest police, fire, and highway updates in Ocean City, MD</p>
-    </header>
-
-    <center>
-    <div class="content">
-        <h2 id="police">Coming Soon!</h2>
+    <div class="container">
+        <header>
+            <h1>Welcome to OC Beach Scanner</h1>
+            <p>Your Ocean City, MD Dashboard</p>
+        </header>
+        <div class="main-content">
+            <div class="content">
+                <h2 style="margin-top: 1em;">TRAFFIC AROUND OC</h2>
+                <div class="webcam-section" id="webcam">
+                    <div class="controls">
+                        <button onclick="prevCamera()">Previous Camera</button>
+                        <button id="auto-rotate-button" onclick="toggleAutoRotate()">Start Auto Rotate</button>
+                        <button onclick="nextCamera()">Next Camera</button>
+                    </div>
+                    <div class="webcam active">
+                        <iframe src="https://chart.maryland.gov/Video/GetVideo/ca00391d02aa00fa0051fa36c4235c0a" style="width: 500px; height: 400px; border: none;" scrolling="no"></iframe>
+                        <div class="webcam-title">US 50 E AT OC DRAWBRIDGE</div>
+                    </div>
+                    <div class="webcam">
+                        <iframe src="https://chart.maryland.gov/Video/GetVideo/ca0022f7010500f9005cd336c4235c0a" style="width: 500px; height: 400px; border: none;" scrolling="no"></iframe>
+                        <div class="webcam-title">US 50 W AT OC DRAWBRIDGE</div>
+                    </div>
+                    <div class="webcam">
+                        <iframe src="https://chart.maryland.gov/Video/GetVideo/db00fc6700950030005dd336c4235c0a" style="width: 500px; height: 400px; border: none;" scrolling="no"></iframe>
+                        <div class="webcam-title">US 50 AT MD 589 RACETRACK RD</div>
+                    </div>
+                    <div class="webcam">
+                        <iframe src="https://chart.maryland.gov/Video/GetVideo/a00040f20098007b00488436cf235d0a" style="width: 500px; height: 400px; border: none;" scrolling="no"></iframe>
+                        <div class="webcam-title">US 50 AT US 113</div>
+                    </div>
+                    <div class="webcam">
+                        <iframe src="https://chart.maryland.gov/Video/GetVideo/c1000a2d004700e700498436cf235d0a" style="width: 500px; height: 400px; border: none;" scrolling="no"></iframe>
+                        <div class="webcam-title">MD 90 AT MD 589</div>
+                    </div>
+                    <div class="webcam">
+                        <iframe src="https://chart.maryland.gov/Video/GetVideo/58004a9f0099007b00488436cf235d0a" style="width: 500px; height: 400px; border: none;" scrolling="no"></iframe>
+                        <div class="webcam-title">US 50 E AT MD 90</div>
+                    </div>
+                    <div class="webcam">
+                        <iframe src="https://chart.maryland.gov/Video/GetVideo/f100453d0099007b00488436cf235d0a" style="width: 500px; height: 400px; border: none;" scrolling="no"></iframe>
+                        <div class="webcam-title">US 50 W AT MD 90</div>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar">
+                <h3 id="audio">LISTEN IN LIVE</h3>
+                <font size="1"><I>Press the play button below to hear fire and police live.</I></font>
+                <iframe width="325px" height="90px" src="https://api.broadcastify.com/embed/player/?key=9fa15f60-3e0a-11ef-9e04-0e98d5b32039&html5=1&feedId=43251&stats=1&bg=81999a" scrolling="no" style="border: none;">Your browser does not support iFrames.</iframe>
+                <div id="swellinfo-widget-8940"></div>
+            </div>
+        </div>
     </div>
-    </center>
-    
     <footer>
         <p>&copy; 2024 OC Beach Scanner</p>
+        <p><a href="https://www.wavejam.com" target="_blank" style="color: white;">Powered by WaveJam Technologies LLC</a></p>
     </footer>
 </body>
 </html>
