@@ -15,6 +15,7 @@
             color: #333;
             display: flex;
             justify-content: center;
+            align-items: center;
             flex-direction: column;
         }
         .container {
@@ -31,11 +32,16 @@
             text-align: center;
             color: white;
             width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
         .main-content {
             display: flex;
             flex-direction: column;
             width: 100%;
+            align-items: center;
         }
         .content, .sidebar {
             padding: 2em;
@@ -44,6 +50,7 @@
             border-radius: 8px;
             text-align: center;
             width: 100%;
+            max-width: 600px; /* Added a max-width for better centering */
         }
         .sidebar {
             background: #8f9da8;
@@ -54,8 +61,10 @@
             background: #4b5571;
             color: white;
             width: 100%;
-            position: fixed;
-            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
         .webcam-section {
             margin-top: 1em;
@@ -101,6 +110,7 @@
         @media (min-width: 600px) {
             .main-content {
                 flex-direction: row;
+                justify-content: center;
             }
             .content {
                 width: 66%;
