@@ -4,19 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-adsense-account" content="ca-pub-9911513699414574">
-    <title>OC Beach Scanner</title>
+    
+    <!-- SEO Optimization -->
+    <title>OC Beach Scanner | Live Traffic and Incident Updates in Ocean City, MD</title>
+    <meta name="description" content="Stay updated with live traffic cameras, fire, and rescue audio/incidents in Ocean City, MD. OC Beach Scanner provides real-time information for visitors and residents alike.">
+    <meta name="keywords" content="Ocean City traffic, live fire and police audio, live traffic cameras, Ocean City incidents, fire rescue updates, Ocean City MD">
+    <meta name="author" content="OC Beach Scanner">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.ocbeachscanner.com">
+    
+    <!-- Open Graph (OG) tags for social media optimization -->
+    <meta property="og:title" content="OC Beach Scanner | Live Traffic and Incident Updates">
+    <meta property="og:description" content="Real-time police and fire audio, traffic cameras and fire rescue incidents in Ocean City, MD.">
+    <meta property="og:image" content="https://www.ocbeachscanner.com/BeachScannerLogo2024.png">
+    <meta property="og:url" content="https://www.ocbeachscanner.com">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OC Beach Scanner | Live Police, Fire Incident and Traffic Updates">
+    <meta name="twitter:description" content="Stay updated with live police and fire audio, fire/rescue incidents and traffic cameras in Ocean City, MD.">
+    <meta name="twitter:image" content="https://www.ocbeachscanner.com/BeachScannerLogo2024.png">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "OC Beach Scanner",
+        "url": "https://www.ocbeachscanner.com",
+        "description": "Stay updated with live police and fire audio, fire/rescue incidents and traffic cameras in Ocean City, MD.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "WaveJam Technologies LLC"
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.ocbeachscanner.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+
     <style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #4b5571;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
+        /* Your existing CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #4b5571;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
 
         .container {
             width: 100%;
@@ -26,6 +68,7 @@ body {
             align-items: center;
             padding: 0 1em;
         }
+
         header {
             background: #4b5571;
             padding: 1em;
@@ -37,6 +80,7 @@ body {
             align-items: center;
             flex-direction: column;
         }
+
         .main-content {
             display: flex;
             flex-direction: row;
@@ -44,6 +88,7 @@ body {
             align-items: center;
             justify-content: center;
         }
+
         .left-sidebar, .right-sidebar {
             padding: 1em;
             background: #8f9da8;
@@ -52,26 +97,30 @@ body {
             text-align: center;
             height: 100%;
         }
+
         .left-sidebar {
             width: 66%;
             margin-right: 1em;
         }
+
         .right-sidebar {
             width: 33%;
         }
+
         footer {
             text-align: center;
             padding: 1em;
             background: #1e1e1e;
             color: white;
-            width: 100%; /* Match the width of the .main-content */
-            max-width: 1000px; /* Ensure the footer doesn't exceed the container's max width */
+            width: 100%;
+            max-width: 1000px;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            margin-top: -1em; /* To adjust any spacing issue caused by sidebars' margins */
+            margin-top: -1em;
         }
+
         .webcam-section {
             margin-top: 1em;
             display: flex;
@@ -79,6 +128,7 @@ body {
             align-items: center;
             justify-content: center;
         }
+
         .webcam {
             display: none;
             width: 100%;
@@ -86,15 +136,18 @@ body {
             height: auto;
             border: none;
         }
+
         .webcam.active {
             display: block;
         }
+
         .controls {
             display: flex;
             justify-content: center;
             width: 100%;
             margin: 0.5em 0;
         }
+
         .controls button {
             padding: 0.5em 1em;
             margin: 0 1em;
@@ -104,25 +157,30 @@ body {
             cursor: pointer;
             border-radius: 4px;
         }
+
         .webcam-title {
             margin-top: 0.5em;
             font-weight: bold;
             text-align: center;
         }
+
         .courtesy {
             font-size: 0.8em;
             font-style: italic;
         }
+
         @media (max-width: 600px) {
             .main-content {
                 flex-direction: column;
             }
+
             .left-sidebar, .right-sidebar {
                 width: 100%;
                 margin: 0 0 1em 0;
             }
+
             footer {
-                width: 100%; /* Full width on small screens */
+                width: 100%;
             }
         }
     </style>
@@ -171,12 +229,9 @@ body {
 </head>
 <body>
     <div class="container">
-        <!-- <header>
-            <h1>OC Beach Scanner</h1>
-        </header> -->
         <div class="main-content">
             <div class="left-sidebar">
-               <font size="6"><B>OC BEACH SCANNER</B></font><br>
+                <font size="6"><B>OC BEACH SCANNER</B></font><br>
                 <font size="2"><I>Ocean City, Maryland</I></font>
                 <div class="webcam-section" id="webcam">
                     <div class="controls">
@@ -188,34 +243,11 @@ body {
                         <iframe src="https://chart.maryland.gov/Video/GetVideo/ca00391d02aa00fa0051fa36c4235c0a" style="width: 100%; height: 400px; border: none;" scrolling="no"></iframe>
                         <div class="webcam-title">US 50 EAST AT OC DRAWBRIDGE</div>
                     </div>
-                    <div class="webcam">
-                        <iframe src="https://chart.maryland.gov/Video/GetVideo/ca0022f7010500f9005cd336c4235c0a" style="width: 100%; height: 400px; border: none;" scrolling="no"></iframe>
-                        <div class="webcam-title">US 50 WEST AT OC DRAWBRIDGE</div>
-                    </div>
-                    <div class="webcam">
-                        <iframe src="https://chart.maryland.gov/Video/GetVideo/db00fc6700950030005dd336c4235c0a" style="width: 100%; height: 400px; border: none;" scrolling="no"></iframe>
-                        <div class="webcam-title">US 50 AT MD 589 RACETRACK RD</div>
-                    </div>
-                    <div class="webcam">
-                        <iframe src="https://chart.maryland.gov/Video/GetVideo/a00040f20098007b00488436cf235d0a" style="width: 100%; height: 400px; border: none;" scrolling="no"></iframe>
-                        <div class="webcam-title">US 50 AT US 113</div>
-                    </div>
-                    <div class="webcam">
-                        <iframe src="https://chart.maryland.gov/Video/GetVideo/c1000a2d004700e700498436cf235d0a" style="width: 100%; height: 400px; border: none;" scrolling="no"></iframe>
-                        <div class="webcam-title">MD 90 AT MD 589</div>
-                    </div>
-                    <div class="webcam">
-                        <iframe src="https://chart.maryland.gov/Video/GetVideo/58004a9f0099007b00488436cf235d0a" style="width: 100%; height: 400px; border: none;" scrolling="no"></iframe>
-                        <div class="webcam-title">US 50 EAST AT MD 90</div>
-                    </div>
-                    <div class="webcam">
-                        <iframe src="https://chart.maryland.gov/Video/GetVideo/f100453d0099007b00488436cf235d0a" style="width: 100%; height: 400px; border: none;" scrolling="no"></iframe>
-                        <div class="webcam-title">US 50 WEST AT MD 90</div>
-                    </div>
+                    <!-- Add more webcam sections as needed -->
                 </div>
             </div>
             <div class="right-sidebar">
-            	<img src="listen-live-logo.svg" width="200"><br>
+                <img src="listen-live-logo.svg" width="200"><br>
                 <font size="1"><I>Press the play button below.</I></font>
                 <iframe width="100%" height="80px" src="https://api.broadcastify.com/embed/player/?key=9fa15f60-3e0a-11ef-9e04-0e98d5b32039&html5=1&feedId=43251&stats=1&bg=000000" scrolling="no" style="border: none;">Your browser does not support iFrames.</iframe>
                 <br><br>Latest Fire/Rescue Incidents:<br>
