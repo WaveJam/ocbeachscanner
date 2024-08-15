@@ -3,38 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Traffic Around OC</title>
+    <meta name="google-adsense-account" content="ca-pub-9911513699414574">
+    <title>OC Beach Scanner</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #d3d3d3;
-            color: #333;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #4b5571;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 1em;
+        }
+        header {
+            background: #4b5571;
+            padding: 1em;
+            text-align: center;
+            color: white;
+            width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            height: 100vh;
         }
-        .container {
+        .main-content {
+            display: flex;
+            flex-direction: row;
             width: 100%;
-            max-width: 600px;
-            text-align: center;
+            align-items: center;
+            justify-content: center;
         }
-        h2 {
-            margin-top: 1em;
+        .left-sidebar, .right-sidebar {
+            padding: 1em;
+            background: #8f9da8;
+            margin: 2em 0;
+            border-radius: 8px;
+            text-align: center;
+            height: 100%;
+        }
+        .left-sidebar {
+            width: 66%;
+            margin-right: 1em;
+        }
+        .right-sidebar {
+            width: 33%;
+        }
+        footer {
+            text-align: center;
+            padding: 1em;
+            background: #1e1e1e;
+            color: white;
+            width: 100%; /* Match the width of the .main-content */
+            max-width: 1000px; /* Ensure the footer doesn't exceed the container's max width */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: -1em; /* To adjust any spacing issue caused by sidebars' margins */
         }
         .webcam-section {
+            margin-top: 1em;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
         }
         .webcam {
+            display: none;
             width: 100%;
             max-width: 500px;
             height: auto;
             border: none;
+        }
+        .webcam.active {
+            display: block;
         }
         .controls {
             display: flex;
@@ -54,6 +107,23 @@
         .webcam-title {
             margin-top: 0.5em;
             font-weight: bold;
+            text-align: center;
+        }
+        .courtesy {
+            font-size: 0.8em;
+            font-style: italic;
+        }
+        @media (max-width: 600px) {
+            .main-content {
+                flex-direction: column;
+            }
+            .left-sidebar, .right-sidebar {
+                width: 100%;
+                margin: 0 0 1em 0;
+            }
+            footer {
+                width: 100%; /* Full width on small screens */
+            }
         }
     </style>
     <script>
@@ -63,9 +133,9 @@
         function showCamera(index) {
             const webcams = document.querySelectorAll('.webcam');
             webcams.forEach((webcam, i) => {
-                webcam.style.display = 'none';
+                webcam.classList.remove('active');
                 if (i === index) {
-                    webcam.style.display = 'block';
+                    webcam.classList.add('active');
                 }
             });
         }
@@ -101,18 +171,60 @@
 </head>
 <body>
     <div class="container">
-        <h2>TRAFFIC AROUND OC</h2>
-        <div class="webcam-section">
-            <div class="controls">
-                <button onclick="prevCamera()">Previous Camera</button>
-                <button id="auto-rotate-button" onclick="toggleAutoRotate()">Start Auto Rotate</button>
-                <button onclick="nextCamera()">Next Camera</button>
+        <!-- <header>
+            <h1>OC Beach Scanner</h1>
+        </header> -->
+        <div class="main-content">
+            <div class="left-sidebar">
+               <font size="6"><B>OC BEACH SCANNER</B></font><br>
+                <font size="2"><I>Ocean City, Maryland</I></font>
+                <div class="webcam-section" id="webcam">
+                    <div class="controls">
+                        <button onclick="prevCamera()">Previous Camera</button>
+                        <button id="auto-rotate-button" onclick="toggleAutoRotate()">Start Auto Rotate</button>
+                        <button onclick="nextCamera()">Next Camera</button>
+                    </div>
+                    <div class="webcam active">
+                        <iframe src="https://chart.maryland.gov/Video/GetVideo/ca00391d02aa00fa0051fa36c4235c0a" style="width: 100%; height: 400px; border: none;" scrolling="no"></iframe>
+                        <div class="webcam-title">US 50 EAST AT OC DRAWBRIDGE</div>
+                    </div>
+                    <div class="webcam">
+                        <iframe src="https://chart.maryland.gov/Video/GetVideo/ca0022f7010500f9005cd336c4235c0a" style="width: 100%; height: 400px; border: none;" scrolling="no"></iframe>
+                        <div class="webcam-title">US 50 WEST AT OC DRAWBRIDGE</div>
+                    </div>
+                    <div class="webcam">
+                        <iframe src="https://chart.maryland.gov/Video/GetVideo/db00fc6700950030005dd336c4235c0a" style="width: 100%; height: 400px; border: none;" scrolling="no"></iframe>
+                        <div class="webcam-title">US 50 AT MD 589 RACETRACK RD</div>
+                    </div>
+                    <div class="webcam">
+                        <iframe src="https://chart.maryland.gov/Video/GetVideo/a00040f20098007b00488436cf235d0a" style="width: 100%; height: 400px; border: none;" scrolling="no"></iframe>
+                        <div class="webcam-title">US 50 AT US 113</div>
+                    </div>
+                    <div class="webcam">
+                        <iframe src="https://chart.maryland.gov/Video/GetVideo/c1000a2d004700e700498436cf235d0a" style="width: 100%; height: 400px; border: none;" scrolling="no"></iframe>
+                        <div class="webcam-title">MD 90 AT MD 589</div>
+                    </div>
+                    <div class="webcam">
+                        <iframe src="https://chart.maryland.gov/Video/GetVideo/58004a9f0099007b00488436cf235d0a" style="width: 100%; height: 400px; border: none;" scrolling="no"></iframe>
+                        <div class="webcam-title">US 50 EAST AT MD 90</div>
+                    </div>
+                    <div class="webcam">
+                        <iframe src="https://chart.maryland.gov/Video/GetVideo/f100453d0099007b00488436cf235d0a" style="width: 100%; height: 400px; border: none;" scrolling="no"></iframe>
+                        <div class="webcam-title">US 50 WEST AT MD 90</div>
+                    </div>
+                </div>
             </div>
-            <div class="webcam" style="display: block;">
-                <img src="https://chart.maryland.gov/Video/GetVideo/ca00391d02aa00fa0051fa36c4235c0a" style="width: 100%; height: auto;" />
-                <div class="webcam-title">US 50 E AT OC DRAWBRIDGE</div>
+            <div class="right-sidebar">
+            	<img src="listen-live-logo.svg" width="200"><br>
+                <font size="1"><I>Press the play button below.</I></font>
+                <iframe width="100%" height="80px" src="https://api.broadcastify.com/embed/player/?key=9fa15f60-3e0a-11ef-9e04-0e98d5b32039&html5=1&feedId=43251&stats=1&bg=000000" scrolling="no" style="border: none;">Your browser does not support iFrames.</iframe>
+                <br><br>Latest Fire/Rescue Incidents:<br>
+                <iframe src="https://frederickscanner.com/fredscannerpro/oc-incidents.html" width="100%" height="330px" style="border: none;"></iframe>
             </div>
         </div>
     </div>
+    <footer>
+        <p>&copy; 2024 OC Beach Scanner - <a href="https://www.wavejam.com" target="_blank" style="color: white;">Powered by WaveJam Technologies LLC</a></p>
+    </footer>
 </body>
 </html>
