@@ -117,12 +117,13 @@ header p {
 }
 
 .full-width-content {
-    width: calc(100% - 2em); /* Adjusted width to fit within padding */
+    width: 80%; /* Make the content box more narrow */
+    max-width: 800px; /* Set a maximum width */
     padding: 2em;
     background: #394b62; /* Darker background color */
     border-radius: 12px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-top: 1em;
+    margin: 1em auto; /* Center the content box */
     color: white; /* Ensures text contrasts well with the darker background */
 }
 
@@ -306,7 +307,7 @@ footer {
             </div>
         </div>
         <div class="full-width-content">
-            <p>This is a full-width content box underneath the sidebars. You can add more information here that spans the entire width of both sidebars.</p>
+            <p>This is a more narrow content box underneath the sidebars. It is centered and more narrow than the site width.</p>
         </div>
     </div>
     <footer>
