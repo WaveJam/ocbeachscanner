@@ -121,6 +121,10 @@ header p {
     overflow: hidden;
 }
 
+.right-sidebar p {
+    color: white; /* Change the color of the "Latest Fire/Rescue Incidents:" text to white */
+}
+
 .full-width-content {
     width: 80%; /* Make the content box more narrow */
     max-width: 800px; /* Set a maximum width */
@@ -130,6 +134,21 @@ header p {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: 1em auto; /* Center the content box */
     color: white; /* Ensures text contrasts well with the darker background */
+    display: flex;
+    justify-content: space-between;
+}
+
+.widget-container {
+    width: 45%;
+}
+
+.video-container {
+    width: 45%;
+}
+
+.video-container iframe {
+    width: 100%;
+    border-radius: 12px; /* Rounding off corners of the video iframe */
 }
 
 footer {
@@ -212,6 +231,13 @@ footer {
     footer {
         border-radius: 0 0 12px 12px;
         width: 100%;
+    }
+    .full-width-content {
+        flex-direction: column;
+    }
+    .widget-container, .video-container {
+        width: 100%;
+        margin-bottom: 1em;
     }
 }
 
@@ -305,14 +331,34 @@ footer {
             </div>
             <div class="right-sidebar">
                 <img src="listen-live-logo.svg" width="200"><br>
-                <font size="1"><I>Press the play button below.</I></font>
-                <iframe width="100%" height="80px" src="https://api.broadcastify.com/embed/player/?key=9fa15f60-3e0a-11ef-9e04-0e98d5b32039&html5=1&feedId=43251&stats=1&bg=000000" scrolling="no" style="border: none;"></iframe>
-                <br><br>Latest Fire/Rescue Incidents:<br>
+                <font size="1"><i>Press the play button below.</i></font>
+                <iframe width="100%" height="80px" src="https://api.broadcastify.com/embed/player/?key=9fa15f60-3e0a-11ef-9e04-0e98d5b32039&html5=1&feedId=43251&stats=1&bg=000000" scrolling="no" style="border: none;">Your browser does not support iFrames.</iframe>
+                <br><br><p>Latest Fire/Rescue Incidents:</p>
                 <iframe src="https://frederickscanner.com/fredscannerpro/oc-incidents.html" width="100%" height="330px" style="border: none;"></iframe>
             </div>
         </div>
         <div class="full-width-content">
-            <p>This is a more narrow content box underneath the sidebars. It is centered and more narrow than the site width.</p>
+            <div class="widget-container">
+                <link href="//www.surf-forecast.com/stylesheets/widget.css" media="screen" rel="stylesheet" type="text/css" />
+                <div class="wf-width-cont surf-fc-widget widget-centered">
+                    <div class="widget-container">
+                        <div class="external-cont">
+                            <iframe class="surf-fc-i" allowtransparency="true" src="//www.surf-forecast.com/breaks/Ocean-City/forecasts/widget/a" scrolling="no" frameborder="0" marginwidth="0" marginheight="0"></iframe>
+                            <div class="footer">
+                                <a class="logo" href="//www.surf-forecast.com/">
+                                    <img src="//www.surf-forecast.com/images/widget.png" width="1" height="1" />
+                                </a>
+                                <div class="about" id="cmt">
+                                    View detailed surf forecast for <a href="//www.surf-forecast.com/breaks/Ocean-City">Ocean City</a>. Visit <a href="//www.surf-forecast.com/breaks/Ocean-City">surf-forecast.com</a> for more details, long range forecasts, surf reports, swell and weather maps.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="video-container">
+                <iframe src="https://webcamprox.d3co.co/castleinthesandaxis-cgi/mjpg/video.cgi?resolution=4CIF&compression=70&dummy=1654790134451" width="100%" height="300px" frameborder="0" allowfullscreen></iframe>
+            </div>
         </div>
     </div>
     <footer>
