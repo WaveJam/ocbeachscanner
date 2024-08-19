@@ -154,34 +154,12 @@ header img {
     justify-content: center;
 }
 
-footer {
-    text-align: center;
-    padding: 1.5em 0;
-    background: #2f3b52; /* Dark navy blue */
-    color: white;
-    border-radius: 0 0 12px 12px;
-    margin-top: 2em;
-    width: 100%;
-}
-
-.webcam {
-    display: none;
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.webcam.active {
-    display: block;
-}
-
 .controls {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin: 1em 0;
+    margin: 1em 0; /* Keeps space around buttons */
+    padding: 0.5em 0; /* Adds padding to restore alignment */
 }
 
 .controls button {
@@ -251,7 +229,7 @@ footer {
         }
 
         function prevCamera() {
-            const webcams are.document.querySelectorAll('.webcam');
+            const webcams = document.querySelectorAll('.webcam');
             currentIndex = (currentIndex - 1 + webcams.length) % webcams.length;
             showCamera(currentIndex);
         }
