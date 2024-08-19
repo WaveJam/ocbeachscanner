@@ -51,7 +51,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #4b5571;
+    background-color: #f4e4d7; /* Light sandy beige background */
     color: #333;
     display: flex;
     justify-content: center;
@@ -59,113 +59,130 @@ body {
     flex-direction: column;
 }
 
-        .container {
-            width: 100%;
-            max-width: 1000px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 0 1em;
-        }
-        header {
-            background: #4b5571;
-            padding: 1em;
-            text-align: center;
-            color: white;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-        .main-content {
-            display: flex;
-            flex-direction: row;
-            width: 100%;
-            align-items: center;
-            justify-content: center;
-        }
-        .left-sidebar, .right-sidebar {
-            padding: 1em;
-            background: #8f9da8;
-            margin: 2em 0;
-            border-radius: 8px;
-            text-align: center;
-            height: 100%;
-        }
-        .left-sidebar {
-            width: 66%;
-            margin-right: 1em;
-        }
-        .right-sidebar {
-            width: 33%;
-        }
-        footer {
-            text-align: center;
-            padding: 1em;
-            background: #1e1e1e;
-            color: white;
-            width: 100%; /* Match the width of the .main-content */
-            max-width: 1000px; /* Ensure the footer doesn't exceed the container's max width */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            margin-top: -1em; /* To adjust any spacing issue caused by sidebars' margins */
-        }
-        .webcam-section {
-            margin-top: 1em;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .webcam {
-            display: none;
-            width: 100%;
-            max-width: 500px;
-            height: auto;
-            border: none;
-        }
-        .webcam.active {
-            display: block;
-        }
-        .controls {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            margin: 0.5em 0;
-        }
-        .controls button {
-            padding: 0.5em 1em;
-            margin: 0 1em;
-            border: none;
-            background: #007bff;
-            color: white;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-        .webcam-title {
-            margin-top: 0.5em;
-            font-weight: bold;
-            text-align: center;
-        }
-        .courtesy {
-            font-size: 0.8em;
-            font-style: italic;
-        }
-        @media (max-width: 600px) {
-            .main-content {
-                flex-direction: column;
-            }
-            .left-sidebar, .right-sidebar {
-                width: 100%;
-                margin: 0 0 1em 0;
-            }
-            footer {
-                width: 100%; /* Full width on small screens */
-            }
-        }
+.container {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1em;
+}
+
+header {
+    background: linear-gradient(to bottom, #a2d9f7, #017cae); /* Oceanic blue gradient */
+    padding: 1em;
+    text-align: center;
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-bottom: 2px solid #ff7f50; /* Coral color */
+}
+
+.main-content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: #e0f7ff; /* Light blue ocean color */
+}
+
+.left-sidebar, .right-sidebar {
+    padding: 1em;
+    background: linear-gradient(to bottom, #d1e9f7, #a2d9f7); /* Soft oceanic gradient */
+    margin: 2em 0;
+    border-radius: 8px;
+    text-align: center;
+    height: 100%;
+}
+
+.left-sidebar {
+    width: 66%;
+    margin-right: 1em;
+}
+
+.right-sidebar {
+    width: 33%;
+}
+
+footer {
+    text-align: center;
+    padding: 1em;
+    background: #ff7f50; /* Coral sunset color */
+    color: white;
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: -1em;
+    border-radius: 8px;
+}
+
+.webcam-section {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.webcam {
+    display: none;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border: none;
+}
+
+.webcam.active {
+    display: block;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0.5em 0;
+}
+
+.controls button {
+    padding: 0.5em 1em;
+    margin: 0 1em;
+    border: none;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.webcam-title {
+    margin-top: 0.5em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.courtesy {
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+@media (max-width: 600px) {
+    .main-content {
+        flex-direction: column;
+    }
+    .left-sidebar, .right-sidebar {
+        width: 100%;
+        margin: 0 0 1em 0;
+    }
+    footer {
+        width: 100%; /* Full width on small screens */
+    }
+}
     </style>
     <script>
         let currentIndex = 0;
@@ -256,7 +273,7 @@ body {
                 </div>
             </div>
             <div class="right-sidebar">
-            	<img src="listen-live-logo.svg" width="200"><br>
+                <img src="listen-live-logo.svg" width="200"><br>
                 <font size="1"><I>Press the play button below.</I></font>
                 <iframe width="100%" height="80px" src="https://api.broadcastify.com/embed/player/?key=9fa15f60-3e0a-11ef-9e04-0e98d5b32039&html5=1&feedId=43251&stats=1&bg=000000" scrolling="no" style="border: none;">Your browser does not support iFrames.</iframe>
                 <br><br>Latest Fire/Rescue Incidents:<br>
@@ -264,21 +281,21 @@ body {
             </div>
         </div>
     </div>
-<footer style="text-align: center; padding: 1em; background: #404040; color: white; width: 100%; max-width: 950px; display: flex; justify-content: center; align-items: center; flex-direction: column; margin-top: -1em; border-radius: 8px;">
-    <p>&copy; 2024 OC Beach Scanner - 
-        <a href="https://www.wavejam.com" target="_blank" style="color: white; text-decoration: none;">Powered by WaveJam Technologies LLC</a>
-        <span style="margin-left: 20px;">
-            <a href="https://www.facebook.com/profile.php?id=61561667823499" target="_blank" style="color: white; text-decoration: none;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 10px;">
-            </a>
-            <a href="https://www.instagram.com/ocbeachscanner" target="_blank" style="color: white; text-decoration: none;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 10px;">
-            </a>
-            <a href="https://x.com/OCBeachScanner" target="_blank" style="color: white; text-decoration: none;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/X_logo_2023_original.svg" alt="Twitter" style="width: 20px; height: 20px; vertical-align: middle;">
-            </a>
-        </span>
-    </p>
-</footer>
+    <footer>
+        <p>&copy; 2024 OC Beach Scanner - 
+            <a href="https://www.wavejam.com" target="_blank" style="color: white; text-decoration: none;">Powered by WaveJam Technologies LLC</a>
+            <span style="margin-left: 20px;">
+                <a href="https://www.facebook.com/profile.php?id=61561667823499" target="_blank" style="color: white; text-decoration: none;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 10px;">
+                </a>
+                <a href="https://www.instagram.com/ocbeachscanner" target="_blank" style="color: white; text-decoration: none;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 10px;">
+                </a>
+                <a href="https://x.com/OCBeachScanner" target="_blank" style="color: white; text-decoration: none;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/X_logo_2023_original.svg" alt="Twitter" style="width: 20px; height: 20px; vertical-align: middle;">
+                </a>
+            </span>
+        </p>
+    </footer>
 </body>
 </html>
