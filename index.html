@@ -135,22 +135,7 @@ header p {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: 1em auto; /* Center the content box */
     color: white; /* Ensures text contrasts well with the darker background */
-    display: flex;
-    justify-content: space-between;
-    gap: 1em; /* Add space between the two containers */
-}
-
-.widget-container {
-    width: 55%; /* Increase the width to accommodate the widget */
-}
-
-.video-container {
-    width: 45%;
-}
-
-.video-container iframe {
-    width: 100%;
-    border-radius: 12px; /* Rounding off corners of the video iframe */
+    text-align: center; /* Center the text inside the content box */
 }
 
 footer {
@@ -233,13 +218,6 @@ footer {
     footer {
         border-radius: 0 0 12px 12px;
         width: 100%;
-    }
-    .full-width-content {
-        flex-direction: column;
-    }
-    .widget-container, .video-container {
-        width: 100%;
-        margin-bottom: 1em;
     }
 }
 
@@ -340,24 +318,7 @@ footer {
             </div>
         </div>
         <div class="full-width-content">
-            <div class="widget-container">
-                <link href="//www.surf-forecast.com/stylesheets/widget.css" media="screen" rel="stylesheet" type="text/css" />
-                <div class="wf-width-cont surf-fc-widget widget-centered">
-                    <div class="widget-container">
-                        <div class="external-cont">
-                            <iframe class="surf-fc-i" allowtransparency="true" src="//www.surf-forecast.com/breaks/Ocean-City/forecasts/widget/a" width="100%" height="300px" scrolling="no" frameborder="0" marginwidth="0" marginheight="0"></iframe>
-                            <div class="footer">
-                                <a class="logo" href="//www.surf-forecast.com/">
-                                    <img src="//www.surf-forecast.com/images/widget.png" width="1" height="1" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="video-container">
-                <iframe src="https://webcamprox.d3co.co/castleinthesandaxis-cgi/mjpg/video.cgi?resolution=4CIF&compression=70&dummy=1654790134451" width="100%" height="300px" frameborder="0" allowfullscreen></iframe>
-            </div>
+            <p>Content goes here</p>
         </div>
     </div>
     <footer>
