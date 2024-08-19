@@ -133,6 +133,13 @@ header img {
     text-align: center; /* Center the text inside the content box */
 }
 
+h2 {
+    text-align: center;
+    color: white; /* Matching the theme */
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
 footer {
     text-align: center;
     padding: 1.5em 0;
@@ -268,6 +275,7 @@ footer {
         <div class="main-content">
             <div class="left-sidebar">
                 <div class="webcam-section" id="webcam">
+                    <h2>OC Traffic Cams</h2> <!-- Added heading above the controls -->
                     <div class="controls">
                         <button onclick="prevCamera()">Previous Camera</button>
                         <button id="auto-rotate-button" onclick="toggleAutoRotate()">Start Auto Rotate</button>
