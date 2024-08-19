@@ -133,12 +133,13 @@ header img {
     text-align: center; /* Center the text inside the content box */
 }
 
-h2 {
+.webcam-title-text {
     text-align: center;
     color: white; /* Matching the theme */
-    font-size: 1.5em;
-    margin-top: 0.5em; /* Reduced the top margin */
-    margin-bottom: 1em; /* Space below the heading */
+    font-size: 1.5em; /* Equivalent to size="5" */
+    margin-top: 0.5em; /* Reduced top margin */
+    margin-bottom: 0.5em; /* Reduced bottom margin */
+    font-weight: bold;
 }
 
 .webcam-section {
@@ -276,7 +277,7 @@ footer {
         <div class="main-content">
             <div class="left-sidebar">
                 <div class="webcam-section" id="webcam">
-                    <h2>OC Traffic Cams</h2> <!-- Added heading above the controls -->
+                    <div class="webcam-title-text">OC Traffic Cams</div> <!-- Updated to use a div with custom styling -->
                     <div class="controls">
                         <button onclick="prevCamera()">Previous Camera</button>
                         <button id="auto-rotate-button" onclick="toggleAutoRotate()">Start Auto Rotate</button>
