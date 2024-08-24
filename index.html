@@ -165,6 +165,12 @@
             color: #a2d9f7; /* Title color matching the theme */
         }
 
+        .news-item h4 .date {
+            font-size: 0.9em;
+            color: #ccc; /* Light grey for the date */
+            margin-left: 0.5em; /* Space between title and date */
+        }
+
         .news-item p {
             margin: 0;
             color: #ddd; /* Light grey for the article content */
@@ -323,12 +329,13 @@
                     newsRssBox.innerHTML = '<h3>Latest News</h3>';
 
                     items.forEach(item => {
+                        const pubDate = new Date(item.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
                         const description = item.description ? item.description.replace('Read more »', 'Read more »<br>') : 'No description available.';
                         const article = document.createElement('div');
                         article.className = 'news-item';
                         article.innerHTML = `
                             <div class="news-item-content">
-                                <h4><a href="${item.link}" target="_blank">${item.title}</a></h4>
+                                <h4><a href="${item.link}" target="_blank">${item.title}</a><span class="date">(${pubDate})</span></h4>
                                 <p>${description}</p>
                             </div>
                         `;
