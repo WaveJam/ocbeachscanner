@@ -122,7 +122,7 @@
             color: white; /* Change the color of the "Press the play button below." text to white */
         }
 
-        .newsrss-box, .weather-box, .surf-box {
+        .weather-box, .surf-box, .newsrss-box {
             width: calc(100% - 40px); /* Adjust width calculation to create more space on both sides */
             max-width: 940px; /* Set a max-width to keep it within bounds */
             padding: 1.5em; /* Adjust padding as needed */
@@ -323,7 +323,7 @@
                     newsRssBox.innerHTML = '<h3>Latest News</h3>';
 
                     items.forEach(item => {
-                        const description = item.description || 'No description available.';
+                        const description = item.description ? item.description.replace('Read more »', 'Read more »<br>') : 'No description available.';
                         const article = document.createElement('div');
                         article.className = 'news-item';
                         article.innerHTML = `
@@ -392,9 +392,6 @@
                 <iframe src="https://frederickscanner.com/fredscannerpro/oc-incidents.html" width="100%" height="330px" style="border: none;"></iframe>
             </div>
         </div>
-        <div class="newsrss-box">
-            <!-- The latest RSS feed articles will be displayed here -->
-        </div>
         <div class="weather-box">
             <a class="weatherwidget-io" href="https://forecast7.com/en/38d34n75d08/ocean-city/" data-label_1="OCEAN CITY" data-label_2="WEATHER" data-theme="original" >OCEAN CITY WEATHER</a>
             <script>
@@ -419,7 +416,9 @@
                 </div>
             </div>
         </div>
-
+        <div class="newsrss-box">
+            <!-- The latest RSS feed articles will be displayed here -->
+        </div>
     </div>
     <footer>
         <p>&copy; 2024 OC Beach Scanner - 
