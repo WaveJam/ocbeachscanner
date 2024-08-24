@@ -81,6 +81,10 @@
             border-radius: 12px 12px 0 0;
         }
 
+        header a {
+            display: inline-block;
+        }
+
         header img {
             max-width: 100%;
             height: auto;
@@ -92,7 +96,7 @@
             width: 100%;
             background-color: #2f3b52; /* Darker background color */
             display: flex;
-            justify-content: center;
+            justify-content: flex-start; /* Align items to the left */
             padding: 1em 0;
             margin-top: 1em;
             border-radius: 0 0 12px 12px;
@@ -372,11 +376,14 @@
 <body>
     <div class="container">
         <header>
-            <img src="OCBSlogo.png" width="900" alt="OC Beach Scanner Logo"> <!-- Updated image attributes -->
+            <a href="https://ocbeachscanner.com">
+                <img src="OCBSlogo.png" width="900" alt="OC Beach Scanner Logo"> <!-- Updated image attributes -->
+            </a>
         </header>
         
         <!-- Navigation Bar -->
         <nav class="navbar">
+            <a href="https://ocbeachscanner.com/">Home</a>
             <a href="about.html">About OC Beach Scanner</a>
             <a href="https://frederickscanner.com/contact/" target="_blank">Contact Us</a>
         </nav>
