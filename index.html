@@ -88,6 +88,28 @@
             margin: 0 auto;
         }
 
+        .navbar {
+            width: 100%;
+            background-color: #2f3b52; /* Darker background color */
+            display: flex;
+            justify-content: center;
+            padding: 1em 0;
+            margin-top: 1em;
+            border-radius: 0 0 12px 12px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5em;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
         .main-content {
             display: flex;
             width: 100%;
@@ -352,6 +374,13 @@
         <header>
             <img src="OCBSlogo.png" width="900" alt="OC Beach Scanner Logo"> <!-- Updated image attributes -->
         </header>
+        
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <a href="about.html">About OC Beach Scanner</a>
+            <a href="https://frederickscanner.com/contact/" target="_blank">Contact Us</a>
+        </nav>
+
         <div class="main-content">
             <div class="left-sidebar">
                 <div class="webcam-section" id="webcam">
